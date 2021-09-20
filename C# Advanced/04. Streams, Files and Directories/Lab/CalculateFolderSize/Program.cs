@@ -7,13 +7,13 @@ namespace CalculateFolderSize
     {
         static void Main(string[] args)
         {
-            string[] fileNames = Directory.GetFiles("TestFolder");
+            string[] files = Directory.GetFiles("TestFolder");
             double totalSize = 0;
 
-            foreach (var currentFile in fileNames)
+            foreach (var currentFile in files)
             {
-                FileInfo info = new FileInfo(currentFile);
-                totalSize += info.Length;
+                FileInfo fileInfo = new FileInfo(currentFile);
+                totalSize += fileInfo.Length;
             }
 
             totalSize = totalSize / 1024 / 1024;
