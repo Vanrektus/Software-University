@@ -8,7 +8,7 @@ namespace SliceAFile
     {
         static async Task Main(string[] args)
         {
-            int parts = 4;
+            int parts = 5;
             byte[] buffer = new byte[4096];
             int totalBytes = 0;
 
