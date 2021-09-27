@@ -56,7 +56,7 @@ namespace CarManufacturer
             set { tires = value; }
         }
 
-        //---------------------Methods---------------------
+        //---------------------------Methods---------------------------
         public void Drive(double distance)
         {
             double fuelLeft = FuelQuantity - distance / 100 * fuelConsumption;
