@@ -17,6 +17,7 @@
             this.Tire = tires;
         }
 
+        //---------------------------Methods---------------------------
         public override string ToString()
         {
             return $"{this.Model}";
