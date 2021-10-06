@@ -6,7 +6,7 @@ namespace IteratorsAndComparators
     class Library : IEnumerable<Book>
     {
         //---------------------------Fields---------------------------
-        private readonly List<Book> books;
+        private readonly IList<Book> books;
 
         //---------------------------Constructors---------------------------
         public Library(params Book[] books)
