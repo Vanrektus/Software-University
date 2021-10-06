@@ -9,7 +9,7 @@ namespace IteratorsAndComparators
 
         public int Year { get; private set; }
 
-        public IEnumerable<string> Authors { get; private set; }
+        public IReadOnlyList<string> Authors { get; private set; }
 
         //---------------------------Constructors---------------------------
         public Book(string title, int year, params string[] authors)
