@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace IteratorsAndComparators
 {
-    class Library : IEnumerable<Book>
+    public class Library : IEnumerable<Book>
     {
         //---------------------------Fields---------------------------
         private readonly IList<Book> books;

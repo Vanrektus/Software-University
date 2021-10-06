@@ -15,12 +15,12 @@ namespace IteratorsAndComparators
 
             foreach (var book in libraryOne)
             {
-                Console.WriteLine(book.Title);
+                Console.WriteLine(book);
             }
 
             foreach (var book in libraryTwo)
             {
-                Console.WriteLine(book.Title);
+                Console.WriteLine(book);
             }
         }
     }
