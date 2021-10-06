@@ -5,13 +5,16 @@ namespace GenericCountMethodDoubles
 {
     public class Box<T> where T : IComparable
     {
+        //---------------------------Fields---------------------------
         private readonly List<T> List;
 
+        //---------------------------Constructors---------------------------
         public Box()
         {
             this.List = new List<T>();
         }
 
+        //---------------------------Methods---------------------------
         public void Add(T value)
         {
             List.Add(value);

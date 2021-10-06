@@ -2,6 +2,7 @@
 {
     public class ArrayCreator
     {
+        //---------------------------Methods---------------------------
         public static T[] Create<T>(int length, T item)
         {
             T[] arr = new T[length];
