@@ -25,7 +25,7 @@ namespace CustomDataStructures
             Console.WriteLine(myCustomList);
 
             //Stack test
-            CustomStack myCustomStack = new CustomStack();
+            CustomStack<int> myCustomStack = new CustomStack<int>();
 
             for (int i = 0; i < 6; i++)
             {
