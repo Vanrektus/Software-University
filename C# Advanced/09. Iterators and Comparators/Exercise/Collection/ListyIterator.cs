@@ -17,7 +17,7 @@ namespace Iterator
             this.list = new List<T>(list);
         }
 
-        //---------------------------Properties---------------------------
+        //---------------------------Methods---------------------------
         public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
@@ -25,10 +25,9 @@ namespace Iterator
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
 
-        //---------------------------Methods---------------------------
         public bool Move()
         {
             if (currentIndex + 1 < list.Count)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Iterator
 {
-    public class ListyIterator<T>
+    public class ListyIterator<T>// : IEnumerator<T>
     {
         //---------------------------Fields---------------------------
         private readonly IList<T> list;
