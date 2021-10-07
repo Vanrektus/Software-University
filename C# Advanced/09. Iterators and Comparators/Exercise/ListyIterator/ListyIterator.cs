@@ -35,14 +35,12 @@ namespace Iterator
 
         public void Print()
         {
-            if (list.Count > 1)
+            if (list.Count == 0)
             {
-                Console.WriteLine(list[currentIndex]);
+                throw new InvalidOperationException("Invalid Operation!");
             }
-            else
-            {
-                Console.WriteLine("Invalid Operation!");
-            }
+
+            Console.WriteLine(list[currentIndex]);
         }
     }
 }

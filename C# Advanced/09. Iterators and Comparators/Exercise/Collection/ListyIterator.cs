@@ -18,16 +18,7 @@ namespace Iterator
         }
 
         //---------------------------Methods---------------------------
-        public IEnumerator<T> GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
+        
         public bool Move()
         {
             if (currentIndex + 1 < list.Count)
@@ -56,21 +47,17 @@ namespace Iterator
             }
         }
 
-        public void PrintAll()
+        public IEnumerator<T> GetEnumerator()
         {
-            if (list.Count > 1)
+            for (int i = 0; i < list.Count; i++)
             {
-                for (int i = 1; i < list.Count; i++)
-                {
-                    Console.Write($"{list[i]} ");
-                }
+                yield return this.list[i];
+            }
+        }
 
-                Console.WriteLine();
-            }
-            else
-            {
-                Console.WriteLine("Invalid Operation!");
-            }
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

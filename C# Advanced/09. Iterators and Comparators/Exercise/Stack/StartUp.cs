@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Linq;
 
-namespace Iterator
+namespace Stack
 {
     public class StartUp
     {
         static void Main(string[] args)
         {
-            ListyIterator<string> list = null;
+            CustomStack<int> customStack = new CustomStack<int>();
 
             while (true)
             {
@@ -21,32 +21,36 @@ namespace Iterator
 
                 switch (command[0])
                 {
-                    case "Create":
-                        list = new ListyIterator<string>(command.Skip(1).ToArray());
+                    case "Push":
+                        int[] elementsToPush = command.Skip(1)
+                            .Select(e => e.Split(",", StringSplitOptions.RemoveEmptyEntries).First())
+                            .Select(int.Parse)
+                            .ToArray();
+
+                        customStack.Push(elementsToPush);
                         break;
 
-                    case "Move":
-                        Console.WriteLine(list.Move());
-                        break;
-
-                    case "HasNext":
-                        Console.WriteLine(list.HasNext());
-                        break;
-
-                    case "Print":
+                    case "Pop":
                         try
                         {
-                            list.Print();
+                            customStack.Pop();
                         }
                         catch (InvalidOperationException ioe)
                         {
                             Console.WriteLine(ioe.Message);
                         }
                         break;
-
-                    default:
-                        break;
                 }
+            }
+
+            foreach (var item in customStack)
+            {
+                Console.WriteLine(item);
+            }
+
+            foreach (var item in customStack)
+            {
+                Console.WriteLine(item);
             }
         }
     }

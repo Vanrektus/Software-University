@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Iterator
 {
@@ -6,10 +7,7 @@ namespace Iterator
     {
         static void Main(string[] args)
         {
-            string[] createList = Console.ReadLine()
-                    .Split(" ", StringSplitOptions.RemoveEmptyEntries);
-
-            ListyIterator<string> list = new ListyIterator<string>(createList);
+            ListyIterator<string> list = null;
 
             while (true)
             {
@@ -23,6 +21,9 @@ namespace Iterator
 
                 switch (command[0])
                 {
+                    case "Create":
+                        list = new ListyIterator<string>(command.Skip(1).ToArray());
+                        break;
                     case "Move":
                         Console.WriteLine(list.Move());
                         break;
@@ -30,10 +31,26 @@ namespace Iterator
                         Console.WriteLine(list.HasNext());
                         break;
                     case "Print":
-                        list.Print();
+                        try
+                        {
+                            list.Print();
+                        }
+                        catch (InvalidOperationException ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
                         break;
                     case "PrintAll":
-                        list.PrintAll();
+                        string message = string.Empty;
+
+                        foreach (var currentElement in list)
+                        {
+                            message += currentElement + " ";
+                        }
+
+                        Console.WriteLine(message.TrimEnd());
+                        break;
+                    default:
                         break;
                 }
             }
