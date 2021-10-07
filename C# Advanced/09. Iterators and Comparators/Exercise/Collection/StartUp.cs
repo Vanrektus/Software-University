@@ -24,22 +24,26 @@ namespace Iterator
                     case "Create":
                         list = new ListyIterator<string>(command.Skip(1).ToArray());
                         break;
+
                     case "Move":
                         Console.WriteLine(list.Move());
                         break;
+
                     case "HasNext":
                         Console.WriteLine(list.HasNext());
                         break;
+
                     case "Print":
                         try
                         {
                             list.Print();
                         }
-                        catch (InvalidOperationException ex)
+                        catch (InvalidOperationException ioe)
                         {
-                            Console.WriteLine(ex.Message);
+                            Console.WriteLine(ioe.Message);
                         }
                         break;
+
                     case "PrintAll":
                         string message = string.Empty;
 
@@ -50,6 +54,7 @@ namespace Iterator
 
                         Console.WriteLine(message.TrimEnd());
                         break;
+
                     default:
                         break;
                 }

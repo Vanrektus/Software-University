@@ -8,7 +8,7 @@ namespace Iterator
         //---------------------------Fields---------------------------
         private readonly IList<T> list;
 
-        private int currentIndex = 1;
+        private int currentIndex = 0;
 
         //---------------------------Constructors---------------------------
         public ListyIterator(params T[] list)
@@ -19,7 +19,7 @@ namespace Iterator
         //---------------------------Methods---------------------------
         public bool Move()
         {
-            if (currentIndex + 1 < list.Count)
+            if (currentIndex < list.Count - 1)
             {
                 currentIndex++;
                 return true;

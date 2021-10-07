@@ -9,7 +9,7 @@ namespace Iterator
         //---------------------------Fields---------------------------
         private readonly IList<T> list;
 
-        private int currentIndex = 1;
+        private int currentIndex = 0;
 
         //---------------------------Constructors---------------------------
         public ListyIterator(params T[] list)
@@ -18,10 +18,10 @@ namespace Iterator
         }
 
         //---------------------------Methods---------------------------
-        
+
         public bool Move()
         {
-            if (currentIndex + 1 < list.Count)
+            if (currentIndex < list.Count - 1)
             {
                 currentIndex++;
                 return true;
@@ -37,14 +37,12 @@ namespace Iterator
 
         public void Print()
         {
-            if (list.Count > 1)
+            if (list.Count == 0)
             {
-                Console.WriteLine(list[currentIndex]);
+                throw new InvalidOperationException("Invalid Operation!");
             }
-            else
-            {
-                Console.WriteLine("Invalid Operation!");
-            }
+
+            Console.WriteLine(list[currentIndex]);
         }
 
         public IEnumerator<T> GetEnumerator()
