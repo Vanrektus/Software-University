@@ -17,7 +17,6 @@ namespace NFactorial
             {
                 Console.WriteLine();
                 return 1;
-
             }
 
             Console.WriteLine($"{n}! = {n} * {n-1}!");
