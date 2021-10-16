@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace ArraySum
 {
@@ -6,7 +7,7 @@ namespace ArraySum
     {
         static void Main(string[] args)
         {
-            int[] array = new int[] { 3, 8, 9 };
+            //int[] array = new int[] { 3, 8, 9 };
 
             //int sum = 0;
 
@@ -14,6 +15,11 @@ namespace ArraySum
             //{
             //    sum += array[i];
             //}
+
+            int[] array = Console.ReadLine()
+                .Split(" ", StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .ToArray();
 
             Console.WriteLine(Sum(array, 0));
         }

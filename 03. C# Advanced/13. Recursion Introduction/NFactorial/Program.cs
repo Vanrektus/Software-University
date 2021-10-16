@@ -6,26 +6,26 @@ namespace NFactorial
     {
         static void Main(string[] args)
         {
-            int n = int.Parse(Console.ReadLine());
+            int number = int.Parse(Console.ReadLine());
 
-            Console.WriteLine(Factorial(n));
+            Console.WriteLine(Factorial(number));
         }
 
-        private static int Factorial(int n)
+        private static int Factorial(int number)
         {
-            if (n == 1)
+            if (number == 1)
             {
                 Console.WriteLine();
                 return 1;
             }
 
-            Console.WriteLine($"{n}! = {n} * {n-1}!");
+            Console.WriteLine($"{number}! = {number} * {number - 1}!");
 
-            int nMinus1Factorial = Factorial(n - 1);
+            int nMinus1Factorial = Factorial(number - 1);
 
-            Console.WriteLine($"{n}! = {n} * {nMinus1Factorial}");
+            Console.WriteLine($"{number}! = {number} * {nMinus1Factorial}");
 
-            return n * nMinus1Factorial;
+            return number * nMinus1Factorial;
         }
     }
 }
