@@ -95,6 +95,7 @@ namespace BattleOfFiveArmies
                 case "up":
                     map[spawnRow][spawnCol] = 'O';
 
+                    //try catch test to see if it's out of array index!!!
                     if (map[armyRow - 1][armyCol] == 'C')
                     {
                     }
@@ -105,6 +106,7 @@ namespace BattleOfFiveArmies
                 case "down":
                     map[spawnRow][spawnCol] = 'O';
 
+                    //try catch test to see if it's out of array index!!!
                     if (map[armyRow + 1][armyCol] == 'C')
                     {
                     }
@@ -115,6 +117,7 @@ namespace BattleOfFiveArmies
                 case "left":
                     map[spawnRow][spawnCol] = 'O';
 
+                    //try catch test to see if it's out of array index!!!
                     if (map[armyRow][armyCol - 1] == 'C')
                     {
                     }
@@ -125,6 +128,7 @@ namespace BattleOfFiveArmies
                 case "right":
                     map[spawnRow][spawnCol] = 'O';
 
+                    //try catch test to see if it's out of array index!!!
                     if (map[armyRow][armyCol + 1] == 'C')
                     {
                     }
