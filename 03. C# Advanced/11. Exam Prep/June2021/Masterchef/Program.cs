@@ -8,16 +8,12 @@ namespace Masterchef
     {
         static void Main(string[] args)
         {
-            int[] ingredientsArray = Console.ReadLine()
+            Queue<int> ingredients = new Queue<int>(Console.ReadLine()
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
-            Queue<int> ingredients = new Queue<int>(ingredientsArray);
-            int[] freshnessLevelArray = Console.ReadLine()
+                .Select(int.Parse));
+            Stack<int> freshnessLevel = new Stack<int>(Console.ReadLine()
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
-            Stack<int> freshnessLevel = new Stack<int>(freshnessLevelArray);
+                .Select(int.Parse));
 
             Dictionary<int, string> dishes = new Dictionary<int, string>()
             {

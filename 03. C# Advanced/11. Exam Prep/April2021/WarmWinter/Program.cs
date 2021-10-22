@@ -8,16 +8,12 @@ namespace WarmWinter
     {
         static void Main(string[] args)
         {
-            int[] hatsArray = Console.ReadLine()
+            Stack<int> hats = new Stack<int>(Console.ReadLine()
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
-            Stack<int> hats = new Stack<int>(hatsArray);
-            int[] scarfsArray = Console.ReadLine()
+                .Select(int.Parse));
+            Queue<int> scarfs = new Queue<int>(Console.ReadLine()
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
-            Queue<int> scarfs = new Queue<int>(scarfsArray);
+                .Select(int.Parse));
 
             int mostExpensiveSet = 0;
             Queue<int> createdSets = new Queue<int>();

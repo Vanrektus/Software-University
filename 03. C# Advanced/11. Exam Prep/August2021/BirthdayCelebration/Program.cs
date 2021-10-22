@@ -8,16 +8,12 @@ namespace BirthdayCelebration
     {
         static void Main(string[] args)
         {
-            int[] guestsArray = Console.ReadLine()
+            Queue<int> guests = new Queue<int>(Console.ReadLine()
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
-            Queue<int> guests = new Queue<int>(guestsArray);
-            int[] platesArray = Console.ReadLine()
+                .Select(int.Parse));
+            Stack<int> plates = new Stack<int>(Console.ReadLine()
                 .Split(" ", StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
-            Stack<int> plates = new Stack<int>(platesArray);
+                .Select(int.Parse));
 
             int wastedGramsOfFood = 0;
 
