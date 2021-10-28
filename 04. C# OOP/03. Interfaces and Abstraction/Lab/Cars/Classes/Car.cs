@@ -3,8 +3,8 @@
     public abstract class Car : ICar
     {
         //---------------------------Properties---------------------------
-        public string Model { get; set; }
-        public string Color { get; set; }
+        public string Model { get; private set; }
+        public string Color { get; private set; }
 
         //---------------------------Constructors---------------------------
         public Car(string model, string color)

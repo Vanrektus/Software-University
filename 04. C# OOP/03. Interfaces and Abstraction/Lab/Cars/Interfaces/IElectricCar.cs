@@ -3,6 +3,6 @@
     public interface IElectricCar
     {
         //---------------------------Properties---------------------------
-        int Battery { get; set; }
+        int Battery { get; }
     }
 }

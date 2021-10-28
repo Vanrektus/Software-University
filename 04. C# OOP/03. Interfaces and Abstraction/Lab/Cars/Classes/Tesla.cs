@@ -5,7 +5,7 @@ namespace Cars
     public class Tesla : Car, IElectricCar
     {
         //---------------------------Properties---------------------------
-        public int Battery { get; set; }
+        public int Battery { get; private set; }
 
         //---------------------------Constructors---------------------------
         public Tesla(string model, string color, int battery)

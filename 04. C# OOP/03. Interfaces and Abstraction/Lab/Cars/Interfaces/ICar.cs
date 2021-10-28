@@ -3,8 +3,8 @@
     public interface ICar
     {
         //---------------------------Properties---------------------------
-        string Model { get; set; }
-        string Color { get; set; }
+        string Model { get; }
+        string Color { get; }
 
         //---------------------------Methods---------------------------
         string Start();
