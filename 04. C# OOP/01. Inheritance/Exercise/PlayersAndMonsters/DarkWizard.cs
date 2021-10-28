@@ -3,7 +3,7 @@
     public class DarkWizard : Wizard
     {
         //---------------------------Constructors---------------------------
-        public DarkWizard(string username, int level)
+        public DarkWizard(string username, int level) 
             : base(username, level)
         {
 

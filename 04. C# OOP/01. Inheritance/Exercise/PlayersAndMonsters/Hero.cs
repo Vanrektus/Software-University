@@ -2,9 +2,8 @@
 {
     public class Hero
     {
-        //---------------------------Propperties---------------------------
+        //---------------------------Properties---------------------------
         public string Username { get; private set; }
-
         public int Level { get; private set; }
 
         //---------------------------Constructors---------------------------
@@ -14,6 +13,7 @@
             this.Level = level;
         }
 
+        //---------------------------Methods---------------------------
         public override string ToString()
         {
             return $"Type: {this.GetType().Name} Username: {this.Username} Level: {this.Level}";

@@ -3,7 +3,7 @@
     public class DarkKnight : Knight
     {
         //---------------------------Constructors---------------------------
-        public DarkKnight(string username, int level)
+        public DarkKnight(string username, int level) 
             : base(username, level)
         {
 

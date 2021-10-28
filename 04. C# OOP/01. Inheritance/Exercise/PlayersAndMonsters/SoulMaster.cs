@@ -3,7 +3,7 @@
     public class SoulMaster : DarkWizard
     {
         //---------------------------Constructors---------------------------
-        public SoulMaster(string username, int level)
+        public SoulMaster(string username, int level) 
             : base(username, level)
         {
 
