@@ -5,7 +5,7 @@ namespace WildFarm
 {
     public class Owl : Bird
     {
-        //---------------------------Constructors---------------------------
+        //---------------------------Constants---------------------------
         private const double OwlWeightMultiplier = 0.25;
 
         //---------------------------Properties---------------------------
@@ -23,9 +23,9 @@ namespace WildFarm
         }
 
         //---------------------------Methods---------------------------
-        public override void ProduceSound()
+        public override string ProduceSound()
         {
-            Console.WriteLine("Hoot Hoot");
+            return "Hoot Hoot";
         }
     }
 }

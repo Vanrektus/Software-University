@@ -1,27 +1,31 @@
 ﻿using System;
 
-namespace WildFarm
+namespace WildFarm.Factories
 {
     public class FoodFactory
     {
         //---------------------------Constructors---------------------------
-        public FoodFactory() { }
+        public FoodFactory()
+        {
+
+        }
 
         //---------------------------Methods---------------------------
         public Food CreateFood(string foodType, params string[] foodInfo)
         {
+            int quantity = int.Parse(foodInfo[1]);
+
             switch (foodType)
             {
-                case "Fruit": return new Fruit(int.Parse(foodInfo[1]));
+                case "Fruit": return new Fruit(quantity);
 
-                case "Meat": return new Meat(int.Parse(foodInfo[1]));
+                case "Meat": return new Meat(quantity);
 
-                case "Seeds": return new Seeds(int.Parse(foodInfo[1]));
+                case "Seeds": return new Seeds(quantity);
 
-                case "Vegetable": return new Vegetable(int.Parse(foodInfo[1]));
+                case "Vegetable": return new Vegetable(quantity);
 
                 default: throw new ArgumentException("Invalid food type.");
-
             }
         }
     }

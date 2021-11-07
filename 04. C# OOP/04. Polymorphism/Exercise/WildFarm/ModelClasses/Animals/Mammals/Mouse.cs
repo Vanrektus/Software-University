@@ -5,7 +5,7 @@ namespace WildFarm
 {
     public class Mouse : Mammal
     {
-        //---------------------------Constructors---------------------------
+        //---------------------------Constants---------------------------
         private const double MouseWeightMultiplier = 0.10;
 
         //---------------------------Properties---------------------------
@@ -24,9 +24,9 @@ namespace WildFarm
         }
 
         //---------------------------Methods---------------------------
-        public override void ProduceSound()
+        public override string ProduceSound()
         {
-            Console.WriteLine("Squeak");
+            return "Squeak";
         }
     }
 }

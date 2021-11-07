@@ -5,7 +5,7 @@ namespace WildFarm
 {
     public class Dog : Mammal
     {
-        //---------------------------Constructors---------------------------
+        //---------------------------Constants---------------------------
         private const double DogWeightMultiplier = 0.40;
 
         //---------------------------Properties---------------------------
@@ -23,9 +23,9 @@ namespace WildFarm
         }
 
         //---------------------------Methods---------------------------
-        public override void ProduceSound()
+        public override string ProduceSound()
         {
-            Console.WriteLine("Woof!");
+            return "Woof!";
         }
     }
 }

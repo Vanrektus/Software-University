@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using WildFarm.Exceptions;
+using WildFarm.Interfaces;
 
 namespace WildFarm
 {
-    public abstract class Animal : IEatable, ISoundProducible
+    public abstract class Animal : IAnimal
     {
         //---------------------------Properties---------------------------
         public string Name { get; private set; }
@@ -22,13 +24,14 @@ namespace WildFarm
         }
 
         //---------------------------Methods---------------------------
-        public abstract void ProduceSound();
+        public abstract string ProduceSound();
 
         public void Eat(Food food)
         {
             if (!this.AllowedFoods.Contains(food.GetType()))
             {
-                throw new ArgumentException($"{this.GetType().Name} does not eat {food.GetType().Name}!");
+                string exceptionMessage = string.Format(ExceptionMessage.InvalidFoodException, this.GetType().Name, food.GetType().Name);
+                throw new ArgumentException(exceptionMessage);
             }
 
             this.Weight += this.WeightMultiplier * food.Quantity;

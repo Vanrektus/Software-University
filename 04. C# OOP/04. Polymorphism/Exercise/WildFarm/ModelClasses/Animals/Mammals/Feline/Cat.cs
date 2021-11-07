@@ -5,7 +5,7 @@ namespace WildFarm
 {
     public class Cat : Feline
     {
-        //---------------------------Constructors---------------------------
+        //---------------------------Constants---------------------------
         private const double CatWeightMultiplier = 0.30;
 
         //---------------------------Properties---------------------------
@@ -24,9 +24,9 @@ namespace WildFarm
         }
 
         //---------------------------Methods---------------------------
-        public override void ProduceSound()
+        public override string ProduceSound()
         {
-            Console.WriteLine("Meow");
+            return "Meow";
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿namespace WildFarm
+﻿namespace WildFarm.IO
 {
-    public interface IEatable
+    public interface IReader
     {
         //---------------------------Methods---------------------------
-        void Eat(Food food);
+        public string ReadLine();
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WildFarm
+namespace WildFarm.Factories
 {
     public class AnimalFactory
     {
@@ -13,19 +13,46 @@ namespace WildFarm
         //---------------------------Methods---------------------------
         public Animal CreateAnimal(string animalType, params string[] animalInfo)
         {
+            string name = animalInfo[1];
+            double weight = double.Parse(animalInfo[2]);
+
+            double? wingSize = null;
+            string livingRegion = string.Empty;
+            string breed = string.Empty;
+
             switch (animalType)
             {
-                case "Owl": return new Owl(animalInfo[1], double.Parse(animalInfo[2]), double.Parse(animalInfo[3]));
+                case "Owl":
+                    wingSize = double.Parse(animalInfo[3]);
 
-                case "Hen": return new Hen(animalInfo[1], double.Parse(animalInfo[2]), double.Parse(animalInfo[3]));
+                    return new Owl(name, weight, (double)wingSize);
 
-                case "Mouse": return new Mouse(animalInfo[1], double.Parse(animalInfo[2]), animalInfo[3]);
+                case "Hen":
+                    wingSize = double.Parse(animalInfo[3]);
 
-                case "Dog": return new Dog(animalInfo[1], double.Parse(animalInfo[2]), animalInfo[3]);
+                    return new Hen(name, weight, (double)wingSize);
 
-                case "Cat": return new Cat(animalInfo[1], double.Parse(animalInfo[2]), animalInfo[3], animalInfo[4]);
+                case "Mouse":
+                    livingRegion = animalInfo[3];
 
-                case "Tiger": return new Tiger(animalInfo[1], double.Parse(animalInfo[2]), animalInfo[3], animalInfo[4]);
+                    return new Mouse(name, weight, animalInfo[3]);
+
+                case "Dog":
+                    livingRegion = animalInfo[3];
+
+                    return new Dog(name, weight, animalInfo[3]);
+
+                case "Cat":
+                    livingRegion = animalInfo[3];
+                    breed = animalInfo[4];
+
+                    return new Cat(name, weight, livingRegion, breed);
+
+                case "Tiger":
+                    livingRegion = animalInfo[3];
+                    breed = animalInfo[4];
+
+                    return new Tiger(name, weight, livingRegion, breed);
 
                 default: throw new ArgumentException("Invalid animal type.");
 

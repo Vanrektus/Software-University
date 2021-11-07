@@ -1,6 +1,8 @@
-﻿namespace WildFarm
+﻿using WildFarm.Interfaces;
+
+namespace WildFarm
 {
-    public abstract class Food
+    public abstract class Food : IFood
     {
         //---------------------------Properties---------------------------
         public int Quantity { get; private set; }

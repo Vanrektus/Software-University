@@ -1,6 +1,8 @@
-﻿namespace WildFarm
+﻿using WildFarm.Interfaces;
+
+namespace WildFarm
 {
-    public abstract class Bird : Animal
+    public abstract class Bird : Animal, IBird
     {
         //---------------------------Propertiess---------------------------
         public double WingSize { get; private set; }

@@ -5,7 +5,7 @@ namespace WildFarm
 {
     public class Tiger : Feline
     {
-        //---------------------------Constructors---------------------------
+        //---------------------------Constants---------------------------
         private const double TigerWeightMultiplier = 1.00;
 
         //---------------------------Properties---------------------------
@@ -23,9 +23,9 @@ namespace WildFarm
         }
 
         //---------------------------Methods---------------------------
-        public override void ProduceSound()
+        public override string ProduceSound()
         {
-            Console.WriteLine("ROAR!!!");
+            return "ROAR!!!";
         }
     }
 }

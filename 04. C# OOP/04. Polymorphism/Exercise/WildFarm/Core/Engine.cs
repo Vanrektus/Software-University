@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using WildFarm.Factories;
+using WildFarm.IO;
 
-namespace WildFarm
+namespace WildFarm.Core
 {
-    public class Engine
+    public class Engine : IEngine
     {
         //---------------------------Fields---------------------------
-        private readonly List<Animal> animals;
+        private readonly IReader reader;
+        private readonly IWriter writer;
+        private readonly ICollection<Animal> animals;
         private readonly FoodFactory foodFactory;
         private readonly AnimalFactory animalFactory;
 
@@ -18,30 +22,35 @@ namespace WildFarm
             this.animalFactory = new AnimalFactory();
         }
 
+        public Engine(IReader reader, IWriter writer)
+            : this()
+        {
+            this.reader = reader;
+            this.writer = writer;
+        }
+
         //---------------------------Methods---------------------------
         public void Run()
         {
             while (true)
             {
-                string command = Console.ReadLine();
+                string[] animalInfo = this.reader.ReadLine()
+                    .Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
-                if (command == "End")
+                if (animalInfo[0] == "End")
                 {
                     break;
                 }
 
                 try
                 {
-                    string[] animalInfo = command
-                        .Split(' ', StringSplitOptions.RemoveEmptyEntries);
-
                     Animal animal = this.animalFactory.CreateAnimal(animalInfo[0], animalInfo);
 
-                    animal.ProduceSound();
+                    this.writer.WriteLine(animal.ProduceSound());
 
                     this.animals.Add(animal);
 
-                    string[] foodInfo = Console.ReadLine()
+                    string[] foodInfo = this.reader.ReadLine()
                         .Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
                     Food food = this.foodFactory.CreateFood(foodInfo[0], foodInfo);
@@ -50,13 +59,13 @@ namespace WildFarm
                 }
                 catch (ArgumentException ae)
                 {
-                    Console.WriteLine(ae.Message);
+                    this.writer.WriteLine(ae.Message);
                 }
             }
 
             foreach (Animal currentAnimal in this.animals)
             {
-                Console.WriteLine(currentAnimal.ToString());
+                this.writer.WriteLine(currentAnimal.ToString());
             }
         }
     }

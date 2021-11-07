@@ -5,7 +5,7 @@ namespace WildFarm
 {
     public class Hen : Bird
     {
-        //---------------------------Constructors---------------------------
+        //---------------------------Constants---------------------------
         private const double HenWeightMultiplier = 0.35;
 
         //---------------------------Properties---------------------------
@@ -26,9 +26,9 @@ namespace WildFarm
         }
 
         //---------------------------Methods---------------------------
-        public override void ProduceSound()
+        public override string ProduceSound()
         {
-            Console.WriteLine("Cluck");
+           return "Cluck";
         }
     }
 }
