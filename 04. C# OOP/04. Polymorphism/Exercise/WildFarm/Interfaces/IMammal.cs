@@ -3,6 +3,6 @@
     public interface IMammal
     {
         //---------------------------Properties---------------------------
-        public string LivingRegion { get; }
+        string LivingRegion { get; }
     }
 }

@@ -3,6 +3,6 @@
     public interface IFeline
     {
         //---------------------------Properties---------------------------
-        public string Breed { get; }
+        string Breed { get; }
     }
 }

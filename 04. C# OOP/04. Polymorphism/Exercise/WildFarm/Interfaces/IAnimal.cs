@@ -3,12 +3,12 @@
     public interface IAnimal
     {
         //---------------------------Properties---------------------------
-        public string Name { get; }
-        public double Weight { get; }
-        public int FoodEaten { get; }
+        string Name { get; }
+        double Weight { get; }
+        int FoodEaten { get; }
 
         //---------------------------Methods---------------------------
-        public void Eat(Food food);
-        public string ProduceSound();
+        void Eat(Food food);
+        string ProduceSound();
     }
 }

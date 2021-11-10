@@ -3,6 +3,6 @@
     public interface IEngine
     {
         //---------------------------Methods---------------------------
-        public void Run();
+        void Run();
     }
 }

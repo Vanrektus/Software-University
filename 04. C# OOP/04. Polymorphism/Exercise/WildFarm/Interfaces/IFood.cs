@@ -3,6 +3,6 @@
     public interface IFood
     {
         //---------------------------Properties---------------------------
-        public int Quantity { get; }
+        int Quantity { get; }
     }
 }

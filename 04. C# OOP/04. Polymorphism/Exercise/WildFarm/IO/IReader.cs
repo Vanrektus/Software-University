@@ -3,6 +3,6 @@
     public interface IReader
     {
         //---------------------------Methods---------------------------
-        public string ReadLine();
+        string ReadLine();
     }
 }
