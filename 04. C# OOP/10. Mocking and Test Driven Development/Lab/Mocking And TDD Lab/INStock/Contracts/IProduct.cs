@@ -4,6 +4,7 @@
 
     public interface IProduct : IComparable<IProduct>
     {
+        //---------------------------Properties---------------------------
         string Label { get; }
 
         decimal Price { get; } 

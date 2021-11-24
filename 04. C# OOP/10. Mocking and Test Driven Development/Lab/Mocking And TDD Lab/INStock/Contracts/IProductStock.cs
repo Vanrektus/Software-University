@@ -4,10 +4,12 @@
 
     public interface IProductStock : IEnumerable<IProduct>
     {
+        //---------------------------Properties---------------------------
         int Count { get; }
 
         IProduct this[int index] { get; set; }
 
+        //---------------------------Methods---------------------------
         bool Contains(IProduct product);
 
         void Add(IProduct product);
