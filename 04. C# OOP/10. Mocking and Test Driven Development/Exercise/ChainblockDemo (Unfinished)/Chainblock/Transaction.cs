@@ -1,12 +1,10 @@
 ﻿using Chainblock.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Chainblock
 {
     public class Transaction : ITransaction
     {
+        //---------------------------Properties---------------------------
         public int Id { get; set; }
 
         public TransactionStatus Status { get; set; }

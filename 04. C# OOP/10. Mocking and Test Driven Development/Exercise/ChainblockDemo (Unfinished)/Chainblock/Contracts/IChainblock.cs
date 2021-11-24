@@ -4,8 +4,10 @@
 
     public interface IChainblock : IEnumerable<ITransaction>
     {
+        //---------------------------Properties---------------------------
         int Count { get; }
 
+        //---------------------------Methods---------------------------
         void Add(ITransaction tx);
 
         bool Contains(ITransaction tx);

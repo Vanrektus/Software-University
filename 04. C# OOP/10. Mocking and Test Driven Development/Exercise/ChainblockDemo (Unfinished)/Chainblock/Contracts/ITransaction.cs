@@ -4,6 +4,7 @@
 
     public interface ITransaction
     {
+        //---------------------------Properties---------------------------
         int Id { get; set; }
 
         TransactionStatus Status { get; set; }

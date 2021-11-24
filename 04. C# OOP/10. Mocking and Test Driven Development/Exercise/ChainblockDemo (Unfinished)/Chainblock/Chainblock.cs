@@ -2,22 +2,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Chainblock
 {
     public class Chainblock : IChainblock
     {
+        //---------------------------Fields---------------------------
         private readonly Dictionary<int, ITransaction> transactions;
 
+        //---------------------------Properties---------------------------
+        public int Count
+            => transactions.Count;
+
+        //---------------------------Constructors---------------------------
         public Chainblock()
         {
             this.transactions = new Dictionary<int, ITransaction>();
         }
 
-        public int Count
-            => transactions.Count;
-
+        //---------------------------Methods---------------------------
         public void Add(ITransaction tx)
         {
             if (!transactions.ContainsKey(tx.Id))
