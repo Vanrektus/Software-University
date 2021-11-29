@@ -8,15 +8,18 @@ namespace CustomDI.Modules
 {
     public abstract class AbstractModule : IModule
     {
+        //---------------------------Fields---------------------------
         private IDictionary<Type, Dictionary<string, Type>> implementations;
         private IDictionary<Type, object> instances;
 
+        //---------------------------Constructors---------------------------
         protected AbstractModule()
         {
             this.implementations = new Dictionary<Type, Dictionary<string, Type>>();
             this.instances = new Dictionary<Type, object>();
         }
 
+        //---------------------------Methods---------------------------
         public abstract void Configure();
 
         protected void CreateMapping<TInter, TImpl>()

@@ -4,6 +4,7 @@ namespace CustomDI.Contracts
 {
     public interface IModule
     {
+        //---------------------------Methods---------------------------
         void Configure();
 
         Type GetMapping(Type currentInterfacee, object attribute);

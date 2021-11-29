@@ -2,5 +2,6 @@
 {
     public interface IFileWriter : IWriter
     {
+
     }
 }

@@ -5,6 +5,7 @@ namespace CustomDI
 {
     public static class DependancyInjector
     {
+        //---------------------------Methods---------------------------
         public static Injector CreateInjector(IModule module)
         {
             module.Configure();

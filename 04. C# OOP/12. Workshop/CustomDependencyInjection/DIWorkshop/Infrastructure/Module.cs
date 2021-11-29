@@ -7,6 +7,7 @@ namespace DIWorkshop.Infrastructure
 {
     public class Module : AbstractModule
     {
+        //---------------------------Methods---------------------------
         public override void Configure()
         {
             CreateMapping<IReader, ConsoleReader>();

@@ -8,13 +8,16 @@ namespace CustomDI.Injectors
 {
     public class Injector
     {
+        //---------------------------Fields---------------------------
         private IModule module;
 
+        //---------------------------Constructors---------------------------
         public Injector(IModule module)
         {
             this.module = module;
         }
 
+        //---------------------------Methods---------------------------
         public T Inject<T>()
         {
             bool hasConstructorInjection = CheckForConstructorInjection<T>();
