@@ -4,6 +4,7 @@ using AquaShop.Models.Fish.Contracts;
 using AquaShop.Utilities.Messages;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AquaShop.Models.Aquariums
@@ -36,7 +37,7 @@ namespace AquaShop.Models.Aquariums
 
         public int Capacity { get; }
 
-        public int Comfort => throw new NotImplementedException();
+        public int Comfort => this.Decorations.Sum(x => x.Comfort);
 
         public ICollection<IDecoration> Decorations => this.decorations;
 
@@ -82,11 +83,11 @@ namespace AquaShop.Models.Aquariums
 
             if (this.Fish.Count == 0)
             {
-                sb.AppendLine("none");
+                sb.AppendLine("Fish: none");
             }
             else
             {
-                sb.AppendLine($"Fish: {string.Join(", ", this.Fish)}");
+                sb.AppendLine($"Fish: {string.Join(", ", this.Fish.Select(x => x.Name))}");
             }
 
             sb.AppendLine($"Decorations: {this.Decorations.Count}");

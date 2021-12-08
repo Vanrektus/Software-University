@@ -36,7 +36,7 @@ namespace SpaceStation.Models.Astronauts
                 return oxygen;
             }
 
-            set
+            protected set
             {
                 if (value < 0)
                 {

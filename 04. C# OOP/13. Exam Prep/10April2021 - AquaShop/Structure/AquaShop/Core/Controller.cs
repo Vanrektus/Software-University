@@ -16,8 +16,8 @@ namespace AquaShop.Core
 {
     public class Controller : IController
     {
-        private DecorationRepository availableDecorations;
-        private List<IAquarium> aquariums;
+        private readonly DecorationRepository availableDecorations;
+        private readonly List<IAquarium> aquariums;
 
         public Controller()
         {
@@ -144,14 +144,14 @@ namespace AquaShop.Core
             return string.Format(OutputMessages.AquariumValue, aquariumName, totalPrice);
         }
 
-        //0 tests passed
+        //1 more tests passed
         public string Report()
         {
             StringBuilder sb = new StringBuilder();
 
             foreach (IAquarium currentAquarium in this.aquariums)
             {
-                sb.Append(currentAquarium.GetInfo() + Environment.NewLine);
+                sb.AppendLine(currentAquarium.GetInfo());
             }
 
             return sb.ToString().TrimEnd();
