@@ -36,3 +36,5 @@ function solve(input) {
 
     return result;
 }
+
+solve(Monday);
