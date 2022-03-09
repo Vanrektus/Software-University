@@ -1,0 +1,21 @@
+section {
+    padding: 20px;
+}
+
+.register {
+    padding-left: 35px;
+}
+
+.hidden {
+    display: none;
+}
+
+.registerBtn {
+    position: absolute;
+    right: 10px;
+}
+
+.loginBtn {
+    position: absolute;
+    right: 90px;
+}
