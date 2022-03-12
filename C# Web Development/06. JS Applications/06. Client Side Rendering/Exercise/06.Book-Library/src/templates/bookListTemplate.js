@@ -26,7 +26,7 @@ export default (books) => html `
         <button @click=${addFunctionality}>Submit</button>
     </form>
 
-    <form @click=${editFunctionality} id="edit-form" class="hide">
+    <form id="edit-form" class="hide">
         <h3>Edit FORM</h3>
         <label>TITLE</label>
         <input type="text" name="title" placeholder="Title...">
