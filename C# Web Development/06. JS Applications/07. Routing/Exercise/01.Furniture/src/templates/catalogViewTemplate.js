@@ -1,4 +1,4 @@
-import { isLoggedin, logoutFunctionality } from '../api/api.js';
+import { logoutFunctionality } from '../api/accountApi.js';
 import { html } from '../lib.js';
 import productTemplate from './productTemplate.js';
 

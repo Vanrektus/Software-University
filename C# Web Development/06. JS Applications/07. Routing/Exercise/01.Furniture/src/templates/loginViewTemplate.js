@@ -1,4 +1,4 @@
-import { createFunctionality, isLoggedin, loginFunctionality, logoutFunctionality } from '../api/api.js';
+import { loginFunctionality, logoutFunctionality } from '../api/accountApi.js';
 import { html } from '../lib.js';
 
 export default () => html `

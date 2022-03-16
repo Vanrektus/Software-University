@@ -1,4 +1,4 @@
-import { logoutFunctionality, registerFunctionality } from '../api/api.js';
+import { logoutFunctionality, registerFunctionality } from '../api/accountApi.js';
 import { html } from '../lib.js';
 
 export default () => html `
