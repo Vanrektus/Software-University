@@ -1,0 +1,61 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.site-wrapper {
+    width: 1200px;
+    margin: auto;
+}
+
+.login-container,
+.register-container,
+.add-movie-container {
+    width: 400px;
+    margin: 30px;
+}
+
+.movie-list {
+    display: flex;
+}
+
+.movie-list-item {
+    margin-right: 10px;
+}
+
+.col-sm-2 {
+    width: 200px;
+}
+
+#loginBtn {
+    position: absolute;
+    right: 100px;
+}
+
+#logoutBtn,
+#registerBtn {
+    position: absolute;
+    right: 10px;
+}
+
+.welcome-user {
+    position: absolute;
+    right: 100px;
+}
+
+.btn.btn-secondary,
+.btn.btn-outline-dark {
+    margin: 3px;
+}
+
+#search-movie {
+    margin: 10px;
+}
+
+.search-movie-label {
+    padding: 3px;
+    margin: 5px;
+}
+
+.btn.btn-primary {
+    margin-left: 5px;
+}
