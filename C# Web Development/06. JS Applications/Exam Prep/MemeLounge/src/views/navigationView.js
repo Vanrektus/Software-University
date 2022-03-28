@@ -25,10 +25,8 @@ const loggedUserTemplate = (email) => html `
 
 const navigationTemplate = (isAuthenticated, email) => html `
     <!-- Navigation -->
-    <nav>
         <a href="/all-memes">All Memes</a>
         ${isAuthenticated ? loggedUserTemplate(email): guestUserTemplate()}
-    </nav>
 `;
 
 export function renderNavigation(context) {

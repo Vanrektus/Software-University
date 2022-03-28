@@ -33,7 +33,6 @@ const memeListTemplate = (memes, username, email, gender) => html `
 export function userProfilePage(context) {
     memeService.getOnlyOwner(context.id)
         .then(memes => {
-            console.log(memes);
             let filteredMemes = memes;
 
             let memeListTemplateResult = memeListTemplate(filteredMemes, context.username, context.email, context.gender);
