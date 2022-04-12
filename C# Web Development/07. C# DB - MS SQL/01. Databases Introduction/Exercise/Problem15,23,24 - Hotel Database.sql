@@ -117,13 +117,13 @@ INSERT INTO [Occupancies]([EmployeeId], [DateOccupied], [AccountNumber], [RoomNu
 (2, '2015-04-09', 2, 2),
 (3, '2012-06-08', 3, 3)
 
--- Problem 23.
+-- Problem 23. - Decrease Tax Rate
 UPDATE [Payments]
 SET [TaxRate] -= [TaxRate] * 0.03
 
 SELECT [TaxRate] FROM [Payments]
 
--- Problem 24.
+-- Problem 24. - Delete All Records
 TRUNCATE TABLE [Occupancies]
 
 
