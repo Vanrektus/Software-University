@@ -1,0 +1,1 @@
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=SoftUni!2022" -p 1433:1433 --name MSSQLServer -d mcr.microsoft.com/mssql/server
