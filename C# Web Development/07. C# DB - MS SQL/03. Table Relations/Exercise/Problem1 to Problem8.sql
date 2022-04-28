@@ -16,7 +16,7 @@ CREATE TABLE Persons(
 	   ,FirstName NVARCHAR(50) NOT NULL
 	   ,Salary MONEY NOT NULL
 	   ,PassportID INT CONSTRAINT FK_Persons_Passports
-	   FOREIGN KEY REFERENCES Passports(PassportID) NOT NULL
+	   FOREIGN KEY REFERENCES Passports(PassportID) UNIQUE NOT NULL
 )
 
 INSERT INTO Persons VALUES
