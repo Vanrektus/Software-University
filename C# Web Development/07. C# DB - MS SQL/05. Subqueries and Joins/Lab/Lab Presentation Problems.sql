@@ -39,23 +39,33 @@ INNER JOIN Departments AS d ON e.DepartmentID = d.DepartmentID
 
 -- Problem: Employee Summary
 SELECT TOP (50)
-	       e.EmployeeID,
-	       CONCAT(e.FirstName, ' ', e.LastName) AS EmployeeName,
-	       CONCAT(m.FirstName, ' ', m.LastName) AS ManagerName,
-	       d.[Name]                             AS DepartmentName
-      FROM Employees   AS e
- LEFT JOIN Employees   AS m ON e.ManagerID = m.EmployeeID
- LEFT JOIN Departments AS d ON e.DepartmentID = d.DepartmentID
-  ORDER BY e.EmployeeID
+	      e.EmployeeID,
+	      CONCAT(e.FirstName, ' ', e.LastName) AS EmployeeName,
+	      CONCAT(m.FirstName, ' ', m.LastName) AS ManagerName,
+          d.[Name]                             AS DepartmentName
+     FROM Employees AS e
+LEFT JOIN Employees   AS m ON e.ManagerID = m.EmployeeID
+LEFT JOIN Departments AS d ON e.DepartmentID = d.DepartmentID
+ ORDER BY e.EmployeeID
 
 
 -- Problem: Min Average Salary
+-- Method 1 - With Subquery
 SELECT 
        MIN(MinSal.AvgSal) AS MinAverageSalary
-  FROM 
+  FROM
 (
-	  SELECT 
-		     AVG(Salary) AS AvgSal
-	    FROM Employees  
-	GROUP BY DepartmentID
+	   SELECT 
+			  AVG(Salary) AS AvgSal
+	     FROM Employees  
+	 GROUP BY DepartmentID
 ) AS MinSal
+
+-- Method 2 - Withour Subquery
+SELECT TOP (1)
+	     AVG(e.Salary) AS MinAverageSalary
+    FROM Employees AS e
+         JOIN Departments AS d 
+		   ON e.DepartmentID = d.DepartmentID
+GROUP BY d.DepartmentID
+ORDER BY AVG(e.Salary)
