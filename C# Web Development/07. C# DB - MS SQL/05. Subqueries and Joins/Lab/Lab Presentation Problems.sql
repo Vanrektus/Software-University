@@ -1,12 +1,12 @@
 -- Problem: Addresses With Towns
 SELECT 
-	       e.FirstName,
-           e.LastName,
-	       t.[Name]  AS Town,
-	       a.AddressText
-      FROM Employees AS e
+		   e.FirstName,
+		   e.LastName,
+		   t.[Name]  AS Town,
+		   a.AddressText
+	  FROM Employees AS e
 INNER JOIN Addresses AS a ON e.AddressID = a.AddressID
-INNER JOIN Towns     AS t ON a.TownID = t.TownID
+INNER JOIN Towns	 AS t ON a.TownID = t.TownID
   ORDER BY e.FirstName ASC, 
 		   e.LastName  ASC
 
