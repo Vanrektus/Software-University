@@ -192,13 +192,56 @@ EXEC usp_GetHoldersWithBalanceHigherThan 10000
 
 -- Problem 11. - Future Value Function
 -- Create
+CREATE OR ALTER FUNCTION ufn_CalculateFutureValue (@Sum DECIMAL(16, 2), @YearlyInterestRate FLOAT, @NumOfYears INT)
+RETURNS DECIMAL(16, 4)
+AS
+BEGIN
+	DECLARE @fv DECIMAL(16, 4)
 
+	SET     @fv = @Sum * (POWER(1 + @YearlyInterestRate, @NumOfYears))
+	RETURN  @fv
+END
+
+-- Execute
+SELECT dbo.ufn_CalculateFutureValue(1000, 0.1, 5) AS [Output]
 
 
 -- Problem 12. - Calculating Interest
 -- Create
-
+CREATE PROCEDURE usp_CalculateFutureValueForAccount(@accounID INT, @interestRate FLOAT, @years INT = 5)
+AS 
+BEGIN
+    SELECT a.Id,
+	       ah.FirstName,
+		   ah.LastName,
+		   a.Balance,
+		   dbo.ufn_CalculateFutureValue(a.Balance, @interestRate, @years) AS [Balance in 5 years]
+    FROM   Accounts AS a
+    JOIN   AccountHolders AS ah ON ah.Id = a.AccountHolderId
+    WHERE  a.Id = @accounID
+END
+	
+-- Execute
+EXEC usp_CalculateFutureValueForAccount 1, 0.1, 10
 
 
 -- Problem 13. - * Cash in User Games Odd Rows *
+USE Diablo
 -- Create
+CREATE FUNCTION ufn_CashInUsersGames(@gameName NVARCHAR(MAX))
+RETURNS TABLE
+AS
+	RETURN (SELECT SUM(fQuerry.Cash) AS SumCash
+			FROM
+				(
+					SELECT ug.Cash AS Cash
+						  ,ROW_NUMBER() OVER (ORDER BY ug.Cash DESC) AS [Row Number]
+					FROM UsersGames AS ug
+					JOIN Games AS g ON g.Id = ug.GameId
+					WHERE g.[Name] = @gameName
+				) 
+				AS fQuerry
+			WHERE fQuerry.[Row Number] % 2 = 1)
+
+-- Execute
+SELECT * FROM dbo.ufn_CashInUsersGames('Love in a mist')
