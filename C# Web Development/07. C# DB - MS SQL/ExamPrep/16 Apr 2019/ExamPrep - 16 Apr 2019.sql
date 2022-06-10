@@ -168,6 +168,7 @@ AS
 		RETURN 'Invalid people count!'
 
 	IF (NOT EXISTS (SELECT 1 FROM Flights WHERE Origin = @Origin AND Destination = @Destination))
+ -- IF ((SELECT TOP(1) Id FROM Flights WHERE Origin = @Origin AND Destination = @Destination) IS NULL)
 		RETURN 'Invalid flight!'
 
 	RETURN CONCAT('Total price ', 
