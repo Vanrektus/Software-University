@@ -22,10 +22,10 @@ namespace P03_FootballBetting.Data.Models
         [Required]
         public int SquadNumber { get; set; }
 
-        [Column("PlayerId")]
+        [Column("TeamId")]
         public int TeamId { get; set; }
 
-        [Column("PlayerId")]
+        [Column("PositionId")]
         public int PositionId { get; set; }
 
         [Required]
@@ -45,7 +45,7 @@ namespace P03_FootballBetting.Data.Models
 
 
         // --- Collections ---
-        [InverseProperty("Player")]
+        [InverseProperty(nameof(PlayerStatistic.Player))]
         public virtual ICollection<PlayerStatistic> PlayerStatistics { get; set; }
     }
 }

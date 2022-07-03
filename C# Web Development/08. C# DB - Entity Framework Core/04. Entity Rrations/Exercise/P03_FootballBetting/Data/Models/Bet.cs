@@ -16,7 +16,7 @@ namespace P03_FootballBetting.Data.Models
         public decimal Amount { get; set; }
 
         [Required]
-        public Prediction Prediction { get; set; }
+        public double Prediction { get; set; }
 
         [Required]
         public DateTime DateTime { get; set; }

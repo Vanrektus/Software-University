@@ -34,7 +34,7 @@ namespace P03_FootballBetting.Data.Models
 
 
         // --- Collections ---
-        [InverseProperty("User")]
+        [InverseProperty(nameof(Bet.User))]
         public virtual ICollection<Bet> Bets { get; set; }
     }
 }

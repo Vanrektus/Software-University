@@ -22,7 +22,7 @@ namespace P03_FootballBetting.Data.Models
 
 
         // --- Collections ---
-        [InverseProperty("Position")]
+        [InverseProperty(nameof(Player.Position))]
         public virtual ICollection<Player> Players { get; set; }
     }
 }

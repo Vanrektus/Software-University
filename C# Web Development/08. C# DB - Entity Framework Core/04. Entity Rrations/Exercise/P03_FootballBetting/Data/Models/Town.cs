@@ -32,7 +32,7 @@ namespace P03_FootballBetting.Data.Models
 
 
         // --- Collections ---
-        [InverseProperty("Town")]
+        [InverseProperty(nameof(Team.Players))]
         public virtual ICollection<Team> Teams { get; set; }
     }
 }

@@ -23,10 +23,10 @@ namespace P03_FootballBetting.Data.Models
 
 
         // --- Collections ---
-        [InverseProperty("Team")]
+        [InverseProperty(nameof(Team.PrimaryKitColor))]
         public virtual ICollection<Team> PrimaryKitTeams { get; set; }
 
-        [InverseProperty("Team")]
+        [InverseProperty(nameof(Team.SecondaryKitColor))]
         public virtual ICollection<Team> SecondaryKitTeams { get; set; }
     }
 }

@@ -58,13 +58,13 @@ namespace P03_FootballBetting.Data.Models
 
 
         // --- Collections ---
-        [InverseProperty("Team")]
+        [InverseProperty(nameof(Game.HomeTeam))]
         public virtual ICollection<Game> HomeGames { get; set; }
 
-        [InverseProperty("Team")]
+        [InverseProperty(nameof(Game.AwayTeam))]
         public virtual ICollection<Game> AwayGames { get; set; }
 
-        [InverseProperty("Team")]
+        [InverseProperty(nameof(Player.Team))]
         public virtual ICollection<Player> Players { get; set; }
     }
 }

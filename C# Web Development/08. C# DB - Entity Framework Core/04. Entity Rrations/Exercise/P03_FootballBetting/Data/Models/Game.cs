@@ -44,7 +44,7 @@ namespace P03_FootballBetting.Data.Models
         public double DrawBetRate { get; set; }
 
         [Required]
-        public Prediction Result { get; set; }
+        public double Result { get; set; }
 
 
 
@@ -60,10 +60,10 @@ namespace P03_FootballBetting.Data.Models
 
 
         // --- Collections ---
-        [InverseProperty("Game")]
+        [InverseProperty(nameof(PlayerStatistic.Game))]
         public virtual ICollection<PlayerStatistic> PlayerStatistics { get; set; }
 
-        [InverseProperty("Game")]
+        [InverseProperty(nameof(Bet.Game))]
         public virtual ICollection<Bet> Bets { get; set; }
     }
 }
