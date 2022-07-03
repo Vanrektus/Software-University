@@ -41,6 +41,32 @@ namespace P03_FootballBetting.Data
             {
                 entity.HasKey(ps => new { ps.GameId, ps.PlayerId });
             });
+
+            modelBuilder.Entity<Team>(entity =>
+            {
+                entity.HasOne(t => t.PrimaryKitColor)
+                       .WithMany(pkc => pkc.PrimaryKitTeams)
+                       .HasForeignKey(t => t.PrimaryKitColorId)
+                       .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(t => t.SecondaryKitColor)
+                       .WithMany(skc => skc.SecondaryKitTeams)
+                       .HasForeignKey(t => t.SecondaryKitColorId)
+                       .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            modelBuilder.Entity<Game>(entity =>
+            {
+                entity.HasOne(g => g.AwayTeam)
+                   .WithMany(at => at.AwayGames)
+                   .HasForeignKey(g => g.AwayTeamId)
+                   .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(g => g.HomeTeam)
+                   .WithMany(ht => ht.HomeGames)
+                   .HasForeignKey(g => g.HomeTeamId)
+                   .OnDelete(DeleteBehavior.Restrict);
+            });
         }
     }
 }
