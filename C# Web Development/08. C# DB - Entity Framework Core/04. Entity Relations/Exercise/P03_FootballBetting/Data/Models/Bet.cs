@@ -16,7 +16,7 @@ namespace P03_FootballBetting.Data.Models
         public decimal Amount { get; set; }
 
         [Required]
-        public double Prediction { get; set; }
+        public Prediction Prediction { get; set; }
 
         [Required]
         public DateTime DateTime { get; set; }
@@ -31,11 +31,9 @@ namespace P03_FootballBetting.Data.Models
 
         // --- Foreign Keys ---
         [ForeignKey(nameof(UserId))]
-        [InverseProperty(nameof(Models.User.Bets))]
         public virtual User User { get; set; }
 
         [ForeignKey(nameof(GameId))]
-        [InverseProperty(nameof(Models.Game.Bets))]
         public virtual Game Game { get; set; }
     }
 }

@@ -26,7 +26,6 @@ namespace P03_FootballBetting.Data.Models
 
         // --- Foreign Keys ---
         [ForeignKey(nameof(CountryId))]
-        [InverseProperty(nameof(Models.Country.Towns))]
         public virtual Country Country { get; set; }
 
 

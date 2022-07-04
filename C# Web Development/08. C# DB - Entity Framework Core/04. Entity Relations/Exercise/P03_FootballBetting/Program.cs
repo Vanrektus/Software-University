@@ -2,7 +2,7 @@
 
 namespace P03_FootballBetting
 {
-    internal class StartUp
+    public class Program
     {
         static void Main(string[] args)
         {

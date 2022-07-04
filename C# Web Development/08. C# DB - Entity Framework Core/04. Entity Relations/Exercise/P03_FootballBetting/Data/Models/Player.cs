@@ -35,11 +35,9 @@ namespace P03_FootballBetting.Data.Models
 
         // --- Foreign Keys ---
         [ForeignKey(nameof(TeamId))]
-        [InverseProperty(nameof(Models.Team.Players))]
         public virtual Team Team { get; set; }
 
         [ForeignKey(nameof(PositionId))]
-        [InverseProperty(nameof(Models.Position.Players))]
         public virtual Position Position { get; set; }
 
 

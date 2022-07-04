@@ -44,15 +44,12 @@ namespace P03_FootballBetting.Data.Models
 
         // --- Foreign Keys ---
         [ForeignKey(nameof(PrimaryKitColorId))]
-        [InverseProperty(nameof(Models.Color.PrimaryKitTeams))]
         public virtual Color PrimaryKitColor { get; set; }
 
         [ForeignKey(nameof(SecondaryKitColorId))]
-        [InverseProperty(nameof(Models.Color.SecondaryKitTeams))]
         public virtual Color SecondaryKitColor { get; set; }
 
         [ForeignKey(nameof(TownId))]
-        [InverseProperty(nameof(Models.Town.Teams))]
         public virtual Town Town { get; set; }
 
 
