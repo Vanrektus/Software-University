@@ -2,8 +2,8 @@
 {
     public enum Prediction
     {
-        Lost = 1,
-        Draw = 2,
-        Win = 3,
+        Lost = 10,
+        Draw = 20,
+        Win = 30,
     }
 }
