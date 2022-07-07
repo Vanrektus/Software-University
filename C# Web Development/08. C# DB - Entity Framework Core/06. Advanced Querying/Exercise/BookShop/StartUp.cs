@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using Z.EntityFramework.Plus;
 
 namespace BookShop
 {
@@ -18,9 +19,9 @@ namespace BookShop
             {
                 DbInitializer.ResetDatabase(dbContext);
 
-                int input = int.Parse(Console.ReadLine());
+                //int input = int.Parse(Console.ReadLine());
                 //string input = Console.ReadLine();
-                Console.WriteLine(CountBooks(dbContext, input));
+                Console.WriteLine(GetMostRecentBooks(dbContext));
             }
         }
 
@@ -196,31 +197,103 @@ namespace BookShop
         // 12. - Total Book Copies
         public static string CountCopiesByAuthor(BookShopContext context)
         {
-            throw new NotImplementedException();
+            var authorBooks = context.Authors
+                .Select(a => new
+                {
+                    FullName = $"{a.FirstName} {a.LastName}",
+                    TotalCopies = a.Books.Sum(b => b.Copies)
+                }).
+                OrderByDescending(b => b.TotalCopies)
+                .ToList();
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var currAuthor in authorBooks)
+            {
+                sb.AppendLine($"{currAuthor.FullName} - {currAuthor.TotalCopies}");
+            }
+
+            return sb.ToString().TrimEnd();
         }
 
         // 13. - Profit by Category
         public static string GetTotalProfitByCategory(BookShopContext context)
         {
-            throw new NotImplementedException();
+            var categories = context.Categories
+                .Select(c => new
+                {
+                    Category = c.Name,
+                    TotalPrice = c.CategoryBooks.Sum(x => x.Book.Price * x.Book.Copies)
+                })
+                .OrderByDescending(b => b.TotalPrice)
+                .ToList();
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var currCat in categories)
+            {
+                sb.AppendLine($"{currCat.Category} ${currCat.TotalPrice:f2}");
+            }
+
+            return sb.ToString().TrimEnd();
         }
 
         // 14. - Most Recent Books
         public static string GetMostRecentBooks(BookShopContext context)
         {
-            throw new NotImplementedException();
+
+            var recentBooks = context.Categories
+                .Select(x => new
+                {
+                    Category = x.Name,
+                    Books = x.CategoryBooks.Select(x => new
+                    {
+                        Title = x.Book.Title,
+                        ReleaseDate = x.Book.ReleaseDate
+                    })
+                    .OrderByDescending(x => x.ReleaseDate)
+                    .Take(3)
+                    .ToList()
+                })
+                .OrderBy(x => x.Category)
+                .ToList();
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var currCat in recentBooks)
+            {
+                sb.AppendLine($"--{currCat.Category}");
+
+                foreach (var currBook in currCat.Books)
+                {
+                    sb.AppendLine($"{currBook.Title} ({currBook.ReleaseDate.Value.Year})");
+                }
+            }
+
+            return sb.ToString().TrimEnd();
         }
 
         // 15. - Increase Prices
         public static void IncreasePrices(BookShopContext context)
         {
-            throw new NotImplementedException();
+            var books = context.Books
+                .Where(x => x.ReleaseDate.Value.Year < 2010)
+                .ToList();
+
+            foreach (var currBook in books)
+            {
+                currBook.Price += 5;
+            }
+
+            context.SaveChanges();
         }
 
         // 16. - Remove Books
         public static int RemoveBooks(BookShopContext context)
         {
-            throw new NotImplementedException();
+            return context.Books
+                .Where(x => x.Copies < 4200)
+                .Delete();
         }
     }
 }
