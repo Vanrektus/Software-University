@@ -14,7 +14,7 @@ namespace BookShop.Data
         {
         }
 
-        public virtual DbSet<Author> Albums { get; set; }
+        public virtual DbSet<Author> Authors { get; set; }
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<BookCategory> BooksCategories { get; set; }

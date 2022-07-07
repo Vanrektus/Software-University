@@ -2,8 +2,8 @@
 {
     public enum AgeRestriction
     {
-        Minor = 10,
-        Teen = 20,
-        Adult = 30,
+        Minor = 0,
+        Teen = 1,
+        Adult = 2,
     }
 }
